@@ -12,6 +12,9 @@
 			(+ (string.substr 0 column) "\n" (string.substr column))
 		string))
 
+; (def head (l) (get l 0))
+; (def tail (l) (l.substr 1)) ; assuming l to be a string
+
 (def find-last-space (s)
 	(var string (s.trimRight))
 	(var space (string.indexOf " "))
@@ -42,15 +45,15 @@
 
 (tap.test "A line wrapper" (lambda (suite)
 	(suite.plan 3)
-	(suite.test "should not wrap an empty string" (lambda (t)
+	(suite.test "when given an empty string" (lambda (t)
 		(t.plan 1)
-		(t.equal (wrap-at 10 "") "" "got an empty string")
+		(t.equal (wrap-at 10 "") "" "should return the empty string")
 	))
-	(suite.test "should not wrap a short word" (lambda (t)
+	(suite.test "when given a short word" (lambda (t)
 		(t.plan 1)		
-		(t.equal (wrap-at 10 "otter") "otter" "got back the word unchanged")
+		(t.equal (wrap-at 10 "otter") "otter" "should return the same word")
 	))
-	(suite.test "should wrap run on text with no spaces" (lambda (t)
+	(suite.test "when given run-on text with no spaces" (lambda (t)
 		(t.plan 2)
 		(t.equal (wrap-at 3 "lollol") "lol\nlol" "wrapped after lol")
 		(t.equal (wrap-at 4 "boldcat") "bold\ncat" "wrapped after bold")))))
