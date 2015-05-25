@@ -1,0 +1,29 @@
+{
+  "name": "word-wrap",
+  "version": "1.0.0",
+  "description": "A lisp (Sibilant) implementation of the word-wrap kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap -R spec test*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "kata",
+    "dojo",
+    "test",
+    "tdd",
+    "lisp"
+  ],
+  "author": "@sleepyfox",
+  "license": "CC-BY-NC-SA-4.0, as per LICENSE.txt file",
+  "dependencies": {
+    "tap": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.7",
+    "sibilant": "^0.2.0"
+  }
+}
