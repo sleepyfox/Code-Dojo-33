@@ -11,6 +11,7 @@
 (def find-last-space (string)
 	[string ""])
 
+
 (tap.test "A space hunter" (lambda (suite)
 	(suite.plan 2)
 	(suite.test "when given an empty string" (lambda (t)
@@ -18,8 +19,14 @@
 		(t.same (find-last-space "") ["" ""] 
 			"should return an empty string")))
 	(suite.test "when given a string with no spaces" (lambda (t)
+		(t.plan 1)
 		(t.same (find-last-space "lolcat") ["lolcat" ""]
-			"should return the same string")))))
+			"should return the same string")))
+	(suite.test "when given two words" (lambda (t)
+		(t.plan 1)
+		(t.same (find-last-space "lol cat") ["lol" "cat"]
+			"should return the two words as strings")))
+	))
 
 (tap.test "A line wrapper" (lambda (suite)
 	(suite.plan 3)
