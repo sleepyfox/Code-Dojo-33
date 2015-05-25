@@ -64,4 +64,9 @@
 		(t.equal (wrap-at 3 "lollol") "lol\nlol" 
 			"should wrap at the column count")
 		(t.equal (wrap-at 4 "boldcat") "bold\ncat" 
-			"should wrap at the column count")))))
+			"should wrap at the column count")))
+	(suite.test "when given a string of words" (lambda (t)
+		(t.plan 1)
+		(t.equal (wrap-at 5 "cat dog") "cat\ndog"
+			"should split at the space")))
+))
