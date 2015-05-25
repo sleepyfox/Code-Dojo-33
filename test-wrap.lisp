@@ -9,7 +9,9 @@
 		(= string "") 
 			"" 
 		(< column string.length) 
-			(+ (string.substr 0 column) "\n" (string.substr column))
+			(do 
+				(var xs (find-last-space (string.substr 0 column)))
+				(+ (get xs 0) "\n" (get xs 1) (string.substr column)))
 		string))
 
 ; (def head (l) (get l 0))
@@ -48,7 +50,7 @@
 ))
 
 (tap.test "A line wrapper" (lambda (suite)
-	(suite.plan 3)
+	(suite.plan 4)
 	(suite.test "when given an empty string" (lambda (t)
 		(t.plan 1)
 		(t.equal (wrap-at 10 "") "" 
