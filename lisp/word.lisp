@@ -11,9 +11,6 @@
 				(+ (get xs 0) "\n" (get xs 1) (string.substr column)))
 		string))
 
-; (def head (l) (get l 0))
-; (def tail (l) (l.substr 1)) ; assuming l to be a string
-
 (def find-last-space (s)
 	(var string (chain (s.trimRight) (trimLeft)))
 	(var space (string.indexOf " "))
